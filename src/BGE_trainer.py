@@ -45,8 +45,8 @@ def bge_trainer_with_cv(model, test_loader, train_df, cv, epochs, lr, batch_size
         trainer = pl.Trainer(
             accelerator="gpu",
             devices=2,
-            # strategy="ddp_notebook", # Required to prevent hanging in Kaggle Notebooks
-            # precision="16-mixed",    # Enables Tensor Cores (FP16) for massive speed/VRAM improvements
+            strategy="ddp_notebook", # Required to prevent hanging in Kaggle Notebooks
+            precision="16-mixed",    # Enables Tensor Cores (FP16) for massive speed/VRAM improvements
             max_epochs=epochs,
             callbacks=[checkpoint_callback, early_stop_callback],
             logger=CSVLogger("logs", name=f"fold_{fold+1}"),
