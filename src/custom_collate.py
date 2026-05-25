@@ -7,7 +7,7 @@ and padding of input sequences, ensuring that they are properly formatted for mo
 import torch
 from transformers import AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained('BAAI/bge-reranker-large')
+tokenizer = AutoTokenizer.from_pretrained('cross-encoder/nli-deberta-v3-large')
 
 def custom_collate_fn(batch):
     flat_pairs, labels = [], []
