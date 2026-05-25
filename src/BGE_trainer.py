@@ -11,7 +11,7 @@ from src.mcq_dataset import MCQDataset
 from src.custom_collate import custom_collate_fn
 import gc
 import numpy as np
-from src.metrics import compute_map_at_3
+from src.mapat3 import compute_map_at_3
 
 
 def bge_trainer_with_cv(model, test_loader, train_df, cv, epochs, lr, batch_size):
