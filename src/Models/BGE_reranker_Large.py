@@ -53,7 +53,7 @@ class BGERerankerLarge(pl.LightningModule):
     def configure_optimizers(self):
         optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.lr, weight_decay=0.01)
         
-        total_steps = self.epochs * len(self.trainer.datamodule.train_dataloader())
+        total_steps = self.epochs * self.trainer.estimated_stepping_batches
         warmup_steps = int(0.1 * total_steps)
         
         scheduler = get_cosine_schedule_with_warmup(
