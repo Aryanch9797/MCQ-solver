@@ -6,6 +6,7 @@ import torch
 import torch.nn as nn
 import pytorch_lightning as pl
 from transformers import AutoModelForSequenceClassification, get_linear_schedule_with_warmup,get_cosine_schedule_with_warmup
+from src.metrics import compute_map_at_3
 
 
 class BGERerankerLarge(pl.LightningModule):
